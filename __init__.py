@@ -13,6 +13,7 @@ sys.modules.setdefault("DA_Nodes", sys.modules[__name__])
 
 from .LoadMedia import LoadMedia
 from .ReferenceLatents import ReferenceLatents
+from .Nag import Nag
 
 
 class DANodesExtension(ComfyExtension):
@@ -21,6 +22,7 @@ class DANodesExtension(ComfyExtension):
         return [
             LoadMedia,
             ReferenceLatents,
+            Nag,
         ]
 
 
