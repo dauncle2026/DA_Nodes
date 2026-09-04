@@ -11,7 +11,7 @@ __path__ = [_DIR]
 __package__ = "DA_Nodes"
 sys.modules.setdefault("DA_Nodes", sys.modules[__name__])
 
-from .LoadMedia import LoadMedia
+from .DAInput import DAInput
 from .ReferenceLatents import ReferenceLatents
 from .Nag import Nag
 
@@ -20,7 +20,7 @@ class DANodesExtension(ComfyExtension):
     @override
     async def get_node_list(self) -> list[type[io.ComfyNode]]:
         return [
-            LoadMedia,
+            DAInput,
             ReferenceLatents,
             Nag,
         ]
