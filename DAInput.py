@@ -59,6 +59,13 @@ class DAInput(io.ComfyNode):
             outputs.append(io.Image.Output(name, display_name=name, tooltip="Video frames"))
         for name in _slot_names("video_audio", VIDEO_COUNT):
             outputs.append(io.Audio.Output(name, display_name=name, tooltip="Soundtrack of the same-numbered video"))
+        inputs.append(io.Combo.Input(
+            "reference_prompt_mode",
+            options=["keep", "remove", "minimax_h3"],
+            default="keep",
+            socketless=True,
+            tooltip="How the API caller rewrites [reference] tags in the prompt. Does not change this node's prompt output.",
+        ))
         return io.Schema(
             node_id="DA_Input",
             display_name="DA Input",
